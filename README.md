@@ -90,7 +90,13 @@ where:
 
 ## Available scopes
 
-// todo
+* users.read - returning all users' data
+* users.create - creating user (regular user)
+* users.update - updating any user data
+* users.activation - changing any regular user to admin user and admin user to regular user
+* loggedUser.read - returning logged user's data
+* loggedUser.update - updating logged user's data
+* ...
 
 ## Making requests to AwesomeTeamPlayer
 
@@ -106,4 +112,38 @@ To make a request to AwesomeTeamPlayer, the application should send a json to
   }
 }
 ```
-//  todo
+
+Where **methodName** is one of the available method listed below.
+
+The result for correct request looks like this:
+ 
+```json
+{
+  "status":"success",
+  "response": {
+    // JSON data
+  }
+}
+```
+
+The result for incorrect request looks like this:
+ 
+```json
+{
+  "status":"failed",
+  "methodName": [
+    //  errors list
+  ],
+  "methodData": [
+    //  errors list
+  ]
+}
+```
+
+## Available methods
+
+* GetUsers (parameters: limit: offset)
+* CountUsers
+* ...
+
+## Webhooks
